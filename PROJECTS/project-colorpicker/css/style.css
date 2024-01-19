@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    direction: ltr;
+}
+#sample{
+    width: 400px;
+    height: 300px;
+   margin: auto;
+      border: 3px solid rgba(150, 12, 150, 0.993);
+   border-radius: 20px;
+}
+label,
+h1{
+    margin-left:550px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#color{
+    margin-left:600px;  
+}

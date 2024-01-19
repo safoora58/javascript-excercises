@@ -1,0 +1,20 @@
+h1,
+h4,
+h6
+{
+    text-align: center;
+}
+
+
+#leather{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(255, 80, 255);
+    margin-top: 10px;
+    line-height: 40px;
+    border-radius: 20px;
+}
+
+#light{
+    border-radius: 20%;
+} 

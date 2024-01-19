@@ -1,0 +1,55 @@
+#logo {
+    margin-right: 220px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.form {
+    width: 300px;
+    margin-right: 100px;
+}
+
+.text {
+    width: 200px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+li {
+    list-style: none;
+}
+
+.delete {
+    background-color: darkkhaki;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+label{
+   font-weight: bold;
+   margin-top: 60px;
+   margin-bottom: 40px;
+}
+
+.navigation{margin-top: 40px;}
+
+#hide{
+    margin-right: 30px;
+}
+
+.search {
+    width: 200px;
+    text-align: end;
+    background-color: antiquewhite;
+}
+
+#search-book{
+    margin-right: 100px;
+    margin-top: 30px;
+}

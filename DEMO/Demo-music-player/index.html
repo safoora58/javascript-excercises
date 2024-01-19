@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://kit.fontawesome.com/dddb319617.js" defer crossorigin="anonymous"></script>
+  <title>music player</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="music">
+      <div class="player">
+        <div class="play-list" id="show-music-list">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="music-list">
+          <div class="header">
+            <div class="music-box">
+              <i class="fa-solid fa-bars"></i>
+              <h4>Music List</h4>
+            </div>
+            <i class="fa-solid fa-xmark" id="close"></i>
+          </div>
+          <ul id="list">
+          </ul>
+        </div>
+        <div class="cover-song">
+          <img src="" class="cover">
+        </div>
+        <div class="info-song">
+          <div class="song-details">
+            <h2 class="song-name"></h2>
+            <h4 class="artist-name"></h4>
+          </div>
+        </div>
+        <div class="song-duration">
+          <div class="progress-bar">
+            <div id="progress-bar"></div>
+          </div>
+          <audio preload="none" src="" id="audio"></audio>
+          <div class="time-container">
+            <div class="time-current">0:00</div>
+            <div class="time-total">0:00</div>
+          </div>
+        </div>
+        <div class="progress-container" id="progress-container">
+          <div class="control">
+            <button class="btn-music" id="skip-backward">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <div class="volume-control">
+              <i class="fa fa-volume-down"></i>
+              <input type="range" min="1" max="100" id="volume-slider">
+              <i class="fa fa-volume-up"></i>
+            </div>
+            <button class="btn-music" id="skip-forward">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+          </div>
+          <div class="controls">
+            <button class="btn-music" id="shuffle">
+              <i class="fa-solid fa-shuffle"></i>
+            </button>
+            <button class="btn-music" id="prev">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="btn-music" id="play-pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <button class="btn-music" id="next">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+            <button class="btn-music" id="repeat">
+              <i class="fa-solid fa-repeat"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/music_player.js"></script>
+  
+</body>
+
+</html>

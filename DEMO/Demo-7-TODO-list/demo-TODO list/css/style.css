@@ -1,0 +1,334 @@
+:root {
+
+    --clr-container-bg: rgba(5, 1, 20, 0.74);
+    --clr-bg-input: rgba(88, 85, 100, 0.363);
+    --clr-header: rgb(212, 196, 176);
+    --clr-red: #f70404;
+    --color-edit: hsl(45, 100%, 51%);
+    --color-text-E: rgb(0, 5, 7);
+    --clr-bg-delete1: #240046;
+    --clr-bg-delete2: #5a189a;
+
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 98vh;
+    background: linear-gradient(to left, #cbb4d4, #20002c);
+    direction: ltr;
+    padding-top: 7rem;
+}
+
+.main {
+    width: 560px;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    border-radius: 45px;
+    box-shadow: 10px 30px 30px rgb(0, 0, 0, 0.25),
+        inset 0px 0px 10px rgba(75, 75, 75, 0.3),
+        inset 5px 5px 20px rgba(0, 0, 0, 0.3),
+        inset -6px -4px 15px rgba(0, 0, 0, 0.5),
+        -11px -11px 15px rgba(121, 119, 119, 0.20),
+        inset 11px 11px 10px rgba(136, 135, 135, 0.55);
+
+
+}
+
+.card {
+    width: 510px;
+    height: 600px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: var(--clr-container-bg);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.card span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent,  #32fc00);
+    animation: border-top 6s linear infinite;
+}
+
+@keyframes border-top {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+
+    }
+}
+
+.card span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #32fc00);
+    animation: border-right 6s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes border-right {
+    0% {
+        transform: translatey(-100%);
+    }
+
+    100% {
+        transform: translatey(100%);
+
+    }
+}
+
+.card span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent,  #32fc00);
+    animation: border-bottom 6s linear infinite;
+    
+
+}
+
+@keyframes border-bottom {
+    0% {
+        transform: translatex(100%);
+    }
+
+    100% {
+        transform: translatex(-100%);
+
+    }
+}
+
+.card span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, transparent, #47fc00);
+    animation: border-left 6s linear infinite;
+  animation-delay: 3s;
+
+}
+
+@keyframes border-left {
+    0% {
+        transform: translatey(100%);
+    }
+
+    100% {
+        transform: translatey(-100%);
+
+    }
+}
+
+
+.header-todo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-header);
+}
+
+.header-task {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clr-header);
+}
+
+.list-tasks {
+    margin-left: -4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* delete button */
+.deletecol {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-btn {
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    border-radius: 11px;
+    border: 1px solid var(--clr-red);
+    position: relative;
+    overflow: hidden;
+    color: var(--clr-red);
+    font-size: 14px;
+    transition: all 1s ease-in;
+    z-index: 1;
+}
+
+.delete-btn::before,
+.delete-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.6s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.delete-btn::before {
+    left: -5px;
+    background: var(--clr-bg-delete1);
+}
+
+.delete-btn::after {
+    right: -5px;
+    background: var(--clr-bg-delete2);
+}
+
+.delete-btn:hover::before,
+.delete-btn:hover::after {
+    width: 58%;
+}
+
+.delete-btn:hover {
+    color: #e0aaff;
+    transition: 0.3s;
+}
+
+/* edit button */
+.edit-btn {
+    width: 55px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 14px;
+    border: 1px solid;
+    font-family: inherit;
+    color: var(--color-edit);
+    z-index: 1;
+}
+
+.edit-btn::before,
+.button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color-edit);
+    transition: 1.5s ease;
+}
+
+.edit-btn::before {
+    top: -1em;
+    left: -1em;
+}
+
+.edit-btn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.edit-btn:hover::before,
+.edit-btn:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.edit-btn:hover {
+    color: var(--color-text-E);
+}
+
+.edit-btn:active {
+    filter: brightness(.8);
+}
+
+
+
+/* input in <li> */
+
+.tasks-name {
+    border: none;
+    outline: none;
+    width: 300px;
+    border-radius: 15px;
+    padding: 0.7em;
+    background-color: #adabab;
+    color: #110101;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+
+}
+
+.tasks-name:focus {
+    background-color: white;
+    transform: scale(1);
+
+}
+
+/* input in head */
+#task-input {
+    width: 300px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 15px;
+    color: #ffffffc4;
+    font-size: 15px;
+    background-color: var(--clr-bg-input);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+#task-input:focus {
+    border: 2px solid transparent;
+    color: #ffffffc4;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s linear;
+}
+
+#task-input::placeholder {
+    color: rgba(240, 248, 255, 0.192);
+}

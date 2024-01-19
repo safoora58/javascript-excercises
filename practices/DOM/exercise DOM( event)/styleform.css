@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 290px;
+    background: fixed;
+    background-image: linear-gradient(to top, #633992, #668dad);
+    background-repeat: no-repeat;
+}
+
+.username input {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+}
+
+.username input::placeholder {
+    color:black;    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.password input {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+}
+
+.password input::placeholder {
+    color:black;    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.email input {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+}
+
+.email input::placeholder {
+    color:black;  
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.comment textarea {
+    border-bottom: 2px solid black;
+}
+
+.comment textarea::placeholder {
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gender {
+        margin-bottom: 30px;
+}
+
+.gender select{
+    width: 50px;
+    height: 30px;
+}
+.comment {
+    margin-bottom: 40px;
+}
+
+.checkbox {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.register input {
+    width: 70px;
+    height: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: burlywood;
+    border: 1px solid brown;
+    border-radius: 7px;
+}
+
+.lable {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+label:hover {
+    background-color: aquamarine;
+    color:black;
+}
+
+h1 {
+    color: rgb(1, 32, 28);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.account{
+    display: inline-block;
+}
+
+.not {
+    color: black;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+span {
+    color: white;
+   
+}
+span:hover {
+    background-color:yellow;
+  color: black;
+}
+
+input:invalid{
+    background-color: rgb(151, 56, 56);
+}
+
+
+input:valid{
+    background-color:rgb(81, 136, 81) ;
+}

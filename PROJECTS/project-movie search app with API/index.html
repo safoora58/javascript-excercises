@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/bootstrap-5.3/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="css/bootstrap-5.3/bootstrap.rtl.min.css.map">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap-5.3/font_bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <script src="https://kit.fontawesome.com/dddb319617.js" crossorigin="anonymous"></script>
+
+
+
+  <title>movie app with api</title>
+</head>
+
+
+
+<body>
+
+
+  <div class="container">
+    <!----LOGO----->
+    <div class="row logo">
+      <div class="col container-logo">
+        <p class="fs-1 fw-bold text-white me-5">Movie<span class="text-warning">Corn.</span></p>
+      </div>
+    </div>
+
+    <!----SEARCH----->
+    <div class="row search-container h-25 ">
+      <div class="col d-flex flex-column justify-content-center align-items-center ">
+        <div class=" search-element d-flex justify-content-center align-items-stretch position-relative">
+          <h3 class="text-white">Search Movie : </h3>
+          <input type="text" class="form-control me-2 bg-warning-subtle" placeholder="search movie title..."
+            id="movie-search-box" onkeyup="findMovies()" onclick="findMovies()">
+
+
+          <!----SEARCH list----->
+          <div class="search-list " id="search-list ">
+
+
+            <!-- <div class="search-list-item d-flex align-items-center">
+            <div class="search-item-pic ">
+              <img src="image/5.jpg">
+            </div>
+            <div class="search-item-info me-3 ">
+              <h3 class="fw-bold fs-6 ">Luther</h3>
+              <p class="fw-bold opacity-75">2020</p>
+            </div>
+          </div> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!----result SEARCH----->
+    <div class="row mt-3 result-grid " id="result-grid">
+
+
+      <!-- <div class="col-sm-6 result-movie  ">
+        <div class="movie-poster">
+          <img src="image/5.jpg">
+        </div>
+      </div>
+
+      <div class="col-sm-6 ">
+        <div class="movie-info text-white ">
+          <h3 class="movie-title text-warning">luther</h3>
+          <ul class="d-flex">
+            <li class="year fw-bold mt-2 ms-2">Year : 2020</li>
+            <li class="rated ms-2">Rating : PG-13</li>
+            <li class="released mt-2">Released : 05 May 2020</li>
+          </ul>
+          <p class="genre d-inline-block"><b>Genre : </b>Action , Comedy</p>
+          <p class="writer"><b>Writer : </b>James , Done</p>
+          <p class="actors"><b>Actors : </b>Brad , Nik</p>
+          <p class="Summary"><b>Summary : </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque nam
+            quisquam culpa hic omnis. Nostrum, doloremque possimus aliquid fugit nobis ipsum corporis assumenda ea
+            veniam reprehenderit, soluta officia, ullam eum.</p>
+          <p class="language text-warning fst-italic"><b>Language : </b>English</p>
+          <p class="awards"><b>awards : </b>Nominated for 1 Oscar</p>
+        </div>
+      </div> -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/movie app.js"></script>
+
+
+    <script src="js/bootstrap5.3/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap5.3/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap5.3/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

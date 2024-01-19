@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: darkorange;
+    width: 100vw;
+    height: 70%;
+
+}
+.part img{
+       transition: 1.3s;
+       padding: 10px;
+}
+.part img:hover {
+    filter: grayscale(100%);
+    transform: scale(1.1);
+}

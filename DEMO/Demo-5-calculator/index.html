@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title> demo 5-calculator </title>
+
+</head>
+
+<body>
+
+
+       <div class="container">
+
+        <div class="section pt-4 ">
+            <div class="row pt-2 ">
+                <div class="col py-1 mt-5 " id="operation-box"> </div>
+            </div>
+
+            <div class="row ">
+                <div class="col display-box "> </div>
+            </div>
+        </div>
+
+
+        <div class="section pt-1 ">
+            <div class="row mt-2 ">
+                <div class="col-2 p-0 ">
+                    <button class="btn " id="memory">MC</button>
+                </div>
+                <div class="col-2 p-0 ">
+                    <button class="btn " id="memory">MR</button>
+                </div>
+                <div class="col-2 p-0 ">
+                    <button class="btn " id="m-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip" data-bs-title="Memory add(Ctrl+P)">M+</button>
+                </div>
+                <div class="col-2 p-0 ">
+                    <button class="btn " id="m-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip" data-bs-title="Memory subtract(Ctrl+Q)">M-</button>
+                </div>
+                <div class="col-2 p-0">
+                    <button class="btn " id="m-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip" data-bs-title="Memory store(Ctrl+M)">MS</button>
+                </div>
+                <div class="col-2 p-0">
+                    <button class="btn " id="memory"> M <i class="bi bi-chevron-compact-down"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section ps-1 ">
+            <div class="row ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-percent " id="math-operators">%</button>
+                </div>
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-clear-last-action" id="math-operators">CE</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-clear " id="math-operators">C</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-backspace" id="math-operators"><i class="bi bi-backspace"></i></button>
+                </div>
+            </div>
+
+
+
+            <div class="row ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-divideone " id="math-operators">1/x</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-power" id="math-operators">x2</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-radical" id="math-operators">
+                        <p class="radical">&#8730;</p>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-divide" id="math-operators">
+                        <p class="divide">&#247;</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row  ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-num " id="number">7</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">8</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">9</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-multipl" id="math-operators"><i class="bi bi-x" id="icon"></i></button>
+                </div>
+            </div>
+
+            <div class="row  ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-num " id="number">4</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">5</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num " id="number">6</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-minus" id="math-operators"><i class="bi bi-dash" id="icon"></i></button>
+                </div>
+            </div>
+
+            <div class="row  ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-num " id="number">1</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">2</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">3</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button id="math-operators" class="btn button-plus"><i class="bi bi-plus" id="icon"></i> </button>
+                </div>
+            </div>
+
+            <div class="row  ">
+                <div class="col-3 pe-1 ">
+                    <button class="btn button-pm" id="number"><i class="bi bi-plus-slash-minus"></i></button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-num" id="number">0</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-decimal" id="number">.</button>
+                </div>
+                <div class="col-3 pe-1">
+                    <button class="btn button-equal" id="equal">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="demo5-calculator.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    </script>
+
+
+    <script>
+
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    </script>
+
+
+</body>
+
+</html>

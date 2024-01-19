@@ -1,0 +1,651 @@
+:root {
+
+    --clr-container-bg: rgba(5, 1, 20, 0.74);
+    --clr-bg-input: rgba(88, 85, 100, 0.363);
+    --clr-header: rgb(212, 196, 176);
+    --clr-red: #f70404;
+    --color-edit: hsl(45, 100%, 51%);
+    --color-text-E: rgb(0, 5, 7);
+    --clr-bg-delete1: #240046;
+    --clr-bg-delete2: #5a189a;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 98vh;
+    background: linear-gradient(to left, #cbb4d4, #20002c);
+    direction: ltr;
+    padding-top: 7rem;
+    animation: tilt-in-left-1 2s 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.main {
+    width: 560px;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    border-radius: 45px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    transition: 2s;
+    box-shadow:
+        10px 30px 30px rgb(0, 0, 0, 0.25),
+        inset 0px 0px 10px rgba(75, 75, 75, 0.3),
+        inset 5px 5px 20px rgba(0, 0, 0, 0.3),
+        inset -6px -4px 15px rgba(0, 0, 0, 0.5),
+        -11px -11px 15px rgba(121, 119, 119, 0.20),
+        inset 11px 11px 10px rgba(136, 135, 135, 0.55);
+}
+
+.card {
+    width: 510px;
+    height: 650px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: var(--clr-container-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.card span.moveline:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #1BFD9C);
+    animation: border-top 6s linear infinite;
+}
+
+@keyframes border-top {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+
+    }
+}
+
+.card span.moveline:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #1BFD9C);
+    animation: border-right 6s linear infinite;
+    animation-delay: 3s;
+}
+
+@keyframes border-right {
+    0% {
+        transform: translatey(-100%);
+    }
+
+    100% {
+        transform: translatey(100%);
+
+    }
+}
+
+.card span.moveline:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, #1BFD9C);
+    animation: border-bottom 6s linear infinite;
+
+
+}
+
+@keyframes border-bottom {
+    0% {
+        transform: translatex(100%);
+    }
+
+    100% {
+        transform: translatex(-100%);
+
+    }
+}
+
+.card span.moveline:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, transparent, #1BFD9C);
+    animation: border-left 6s linear infinite;
+    animation-delay: 3s;
+
+}
+
+@keyframes border-left {
+    0% {
+        transform: translatey(100%);
+    }
+
+    100% {
+        transform: translatey(-100%);
+
+    }
+}
+
+.header-todo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-header);
+}
+
+.header-task {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clr-header);
+    margin-left: -170px;
+}
+
+.enter {
+    display: flex;
+    align-items: center;
+    width: 500px;
+}
+
+.ul {
+    margin-left: -4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+ul li {
+    transition: 0.4s;
+}
+
+ul li:hover {
+    transform: scale(1.05);
+}
+
+li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add Task button */
+#task-btn {
+    opacity: 0.6;
+    pointer-events: auto;
+    --green: #1BFD9C;
+    font-size: 14px;
+    padding: 10px 20px;
+    position: relative;
+    font-family: inherit;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 1px solid var(--green);
+    background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
+    color: var(--green);
+    box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+    pointer-events: none;
+}
+
+#task-btn.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#task-btn:hover {
+    color: #82ffc9;
+    box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+
+#task-btn:before {
+    content: "";
+    position: absolute;
+    left: -4em;
+    width: 4em;
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+}
+
+#task-btn:hover:before {
+    transform: translateX(15em);
+}
+
+#task-btn:active {
+    transform: scale(0.95);
+}
+
+/* Search input */
+.search-box {
+    position: relative;
+    padding: 20px 0 0;
+    width: 100%;
+    max-width: 180px;
+}
+
+.user-search {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px 0;
+    background: transparent;
+
+}
+
+.user-search::placeholder {
+    color: transparent;
+}
+
+.user-search:placeholder-shown~.form__label {
+    font-size: 16px;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.4s;
+    font-size: 14px;
+    color: #9b9b9b;
+    pointer-events: none;
+}
+
+.user-search:focus {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #03c8a8, #004dff);
+    border-image-slice: 1;
+}
+
+.user-search:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.7s;
+    font-size: 14px;
+    color: #38caef;
+
+}
+
+/* Delete button */
+.deletecol {
+    display: flex;
+    justify-content: center;
+    width: 55px;
+}
+
+.delete-btn {
+    width: 50px;
+    height: 40px;
+    border-radius: 11px;
+    border: 1px solid var(--clr-red);
+    position: relative;
+    overflow: hidden;
+    color: var(--clr-red);
+    font-size: 14px;
+    transition: all 1s ease-in;
+    z-index: 1;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 3px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.delete-btn::before,
+.delete-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.6s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.delete-btn::before {
+    left: -5px;
+    background: var(--clr-bg-delete1);
+}
+
+.delete-btn::after {
+    right: -5px;
+    background: var(--clr-bg-delete2);
+}
+
+.delete-btn:hover::before,
+.delete-btn:hover::after {
+    width: 58%;
+}
+
+.delete-btn:hover {
+    color: #e0aaff;
+    transition: 0.3s;
+}
+
+.icon-d {
+    font-size: 19px;
+}
+
+/* Edit button */
+.editcol {
+    display: flex;
+    justify-content: center;
+    width: 55px;
+}
+
+.edit-btn {
+    width: 50px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 19px;
+    border: 1px solid;
+    font-family: inherit;
+    color: var(--color-edit);
+    z-index: 1;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 3px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+
+}
+
+.edit-btn::before,
+.button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color-edit);
+    transition: 1.8s ease;
+}
+
+.edit-btn::before {
+    top: -1em;
+    left: -1em;
+}
+
+.edit-btn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.edit-btn:hover::before,
+.edit-btn:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.edit-btn:active {
+    filter: brightness(.8);
+}
+
+.edit-btn:hover {
+    color: black;
+}
+
+.icon-e {
+    font-size: 17px;
+}
+
+/* input in head */
+#task-input {
+    width: 300px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 15px;
+    color: #ffffffc4;
+    font-size: 15px;
+    background-color: var(--clr-bg-input);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+#task-input:focus {
+    border: 2px solid transparent;
+    color: #ffffffc4;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s linear;
+}
+
+#task-input::placeholder {
+    color: rgba(240, 248, 255, 0.192);
+}
+
+/* input in <li> */
+.tasks-name {
+    border: none;
+    outline: none;
+    width: 250px;
+    border-radius: 15px;
+    padding: 0.7em;
+    background-color: #adabab;
+    color: #110101;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-left: 5px;
+    font-weight: bold;
+
+}
+
+.tasks-name:focus {
+    background-color: white;
+    transition: all 1.3s ease;
+
+}
+
+
+/* checkbox */
+.checkmark {
+    margin-left: 10px;
+}
+
+.checked {
+    opacity: 0.5;
+    transition: all 0.9s ease;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: #5a189a;
+}
+
+/* Scroll */
+.main-visible {
+    height: 344px;
+    overflow-x: hidden;
+    margin-right: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(204, 202, 202);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #240046;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #1bfd9b41;
+
+}
+
+/*footer box*/
+.footer {
+    width: 500px;
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: -20px;
+
+}
+
+/* tasks-number*/
+/*completed-number*/
+.tasks-number,
+.completed-number {
+    background-color: rgba(233, 216, 240, 0.397);
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    color: #110101;
+    width: 150px;
+    height: 28px;
+    margin-left: 20px;
+    border: 2px solid transparent;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 3px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+
+}
+
+.completed-number {
+    margin-left: 60px;
+}
+
+/*Delete All button */
+.delete-all {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    font-size: 15px;
+    background-color: #004dff;
+    background-image: linear-gradient(315deg, #03c8a8 0%, #004dff 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    transition: all 0.6s;
+}
+
+.delete-all.exit {
+    transform: scale(0);
+}
+
+.delete-all:hover {
+    background-color: #004dff;
+    background-image: linear-gradient(315deg, #004dff 0%, #03c8a8 74%);
+}
+
+.delete-all span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.delete-all:before,
+.delete-all:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .9),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .9),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.5s ease;
+}
+
+.delete-all:before {
+    height: 0%;
+    width: .1px;
+}
+
+.delete-all:after {
+    width: 0%;
+    height: .1px;
+}
+
+.delete-all:hover:before {
+    height: 100%;
+}
+
+.delete-all:hover:after {
+    width: 100%;
+}
+
+
+.boxdelete {
+    position: absolute;
+    top: 520px;
+}
+
+@keyframes tilt-in-left-1 {
+    0% {
+        transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg) translateX(0) skewX(0deg);
+        opacity: 1;
+    }
+}
